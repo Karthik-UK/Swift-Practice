@@ -48,6 +48,24 @@ func Bin(arr:[Int],ser:Int)
 }
 }
 
-Bin(arr:[1,2,3,4,5,6,7],ser :3documenrts)
+Bin(arr:[1,2,3,4,5,6,7],ser :3)
 
 
+//example
+func Function( _ name:String, _ id:Int)->(String,Int){
+    let name1 = name + "hello"
+    let id1 = id + 1
+    return (name1 , id1)
+}
+print(Function("Ka",3455))
+
+
+struct Resolution {
+    var width  =  0
+    var height = 0
+}
+let res = Resolution()
+print(res.width)
+let vga = Resolution(width: 640, height: 480)
+print(vga.height)
+                        
