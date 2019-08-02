@@ -61,11 +61,72 @@ print(Function("Ka",3455))
 
 
 struct Resolution {
-    var width  =  0
+    var width  = 0
     var height = 0
 }
 let res = Resolution()
 print(res.width)
 let vga = Resolution(width: 640, height: 480)
 print(vga.height)
-                        
+
+var shippingCosts = Resolution()
+
+//
+class ObservedCirlce {
+var radius:Double = 1.0 {
+ willSet{
+    print("Radius is changing from \(radius) to \(newValue).")
+}
+
+}
+ var area:Double {
+return(3.14 * radius * radius)
+ }
+}
+
+var oc = ObservedCirlce()
+oc.radius = 2.5 // prints "Radius is changing from 1.0 to 2.5."
+ oc.area // 19.625
+/*
+
+struct Color {
+    var red, green, blue: Double
+    init( red: Double,green: Double,blue: Double) {
+        self.red   = red
+        self.green = green
+        self.blue  = blue
+    }
+    init(white: Double) {
+        red   = white
+        green = white
+        blue  = white
+    }
+}
+let magenta = Color(1,1,0)
+let halfGray = Color(white: 0.5)
+print(magenta)
+*/
+
+class hand{
+    
+    
+    var a = ["rr","jkg","JKI"]
+    subscript(index : Int) -> String{
+        return a[index]
+    }
+}
+var c = hand()
+print(c[1])
+
+
+class Name{
+    var Name : String
+    
+    init (Name:String){
+        self.Name = Name
+    }
+    init (Name : String,Ha : String)
+    {print("Hello every1 my name is \(Name) and \(Ha)")
+    }}
+var y = Name(Name: "")
+
