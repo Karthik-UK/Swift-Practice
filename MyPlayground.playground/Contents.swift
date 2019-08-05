@@ -119,14 +119,89 @@ var c = hand()
 print(c[1])
 
 
-class Name{
-    var Name : String
-    
-    init (Name:String){
-        self.Name = Name
-    }
-    init (Name : String,Ha : String)
-    {print("Hello every1 my name is \(Name) and \(Ha)")
-    }}
-var y = Name(Name: "")
 
+
+
+
+let Somechar : Character = "a"
+switch Somechar {
+case "a":print("fvvgdfgvfgv")
+        fallthrough
+case "b":print("ui")
+    
+default:print("ghjnjnhjmj")
+    
+    
+}
+
+
+
+
+
+enum ErrorsToThrow: Error {
+    case nameIsEmpty
+}
+
+
+
+
+class Human {
+    var name:String?
+    init(name:String?) throws {
+            guard let name = name else {
+            throw ErrorsToThrow.nameIsEmpty
+        }
+        self.name = name
+    }
+}
+
+
+do {
+    let humanObj = try? Human(name: nil)
+} catch ErrorsToThrow.nameIsEmpty {
+    print("The name is empty.Cannot initialize human")
+}
+let humanObj1 = try? Human(name: "5")
+
+class MediaItem {
+    var name: String
+    init(name: String) {
+        self.name = name
+    }
+}
+
+class Movie: MediaItem {
+    var director: String
+    init(name: String, director: String) {
+        self.director = director
+        super.init(name: name)
+    }
+}
+
+class Song: MediaItem {
+    var artist: String
+    init(name: String, artist: String) {
+        self.artist = artist
+        super.init(name: name)
+    }
+}
+
+let library = [
+    Movie(name: "Casablanca", director: "Michael Curtiz"),
+    Song(name: "Blue Suede Shoes", artist: "Elvis Presley"),
+    Movie(name: "Citizen Kane", director: "Orson Welles"),
+    Song(name: "The One And Only", artist: "Chesney Hawkes"),
+    Song(name: "Never Gonna Give You Up", artist: "Rick Astley")
+]
+var movieCount = 0
+var songCount = 0
+
+for i in library {
+    if i is Movie {
+        movieCount += 1
+    } else if i is Song {
+        songCount += 1
+    }
+}
+
+print("Media library contains \(movieCount) movies and \(songCount) songs")
