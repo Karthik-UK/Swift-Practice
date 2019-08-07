@@ -205,3 +205,144 @@ for i in library {
 }
 
 print("Media library contains \(movieCount) movies and \(songCount) songs")
+
+
+
+func printAndCount(strin: String) -> Int {
+    print(strin)
+    return strin.count
+}
+func printWithoutCounting(string: String) {
+    let _ = printAndCount(strin: string)
+}
+printAndCount(strin: "hello, world")
+// prints "hello, world" and returns a value of 12
+printWithoutCounting(string: "hello, world")
+// prints "hello, world" but does not return a value
+
+
+
+//arc
+class Employee {
+    let empName: String
+    weak var dept: Department?
+    
+    init(empName: String) {
+        self.empName = empName
+        print("\(empName) is being initialized")
+    }
+    
+    deinit {
+        print("\(empName) is being deinitialized")
+    }
+}
+class Department {
+    let deptName: String
+     var emp: Employee?
+    init(deptName: String) {
+        self.deptName = deptName
+        print("\(deptName) is being initialized")
+    }
+    
+    deinit {
+        print("\(deptName) is being deinitialized")
+    }
+}
+
+var john :Employee? = Employee(empName: "john")
+var iOS : Department? = Department(deptName: "iOS")
+john?.dept = iOS
+iOS?.emp = john
+iOS = nil
+
+
+
+
+
+
+// nestede func
+
+func operate() -> (Int, Int) -> Int {
+    
+    func add(num1:Int, num2:Int) -> Int {
+        return num1 + num2
+    }
+    
+    func subtract(num1:Int, num2:Int) -> Int {
+        return num1 - num2
+    }
+    let operation = add
+    return operation
+}
+let operation = operate()
+let result = operation(2, 3)
+print(result)
+
+func main() -> (Int,String) -> String {
+    func roll(r :Int ,Name:String) -> String
+    {  print(r)
+        return "Name is \(Name)\(r)"
+    }
+    let c = roll
+    return c
+    
+}
+let p = main()
+let e = p(12 , "qet")
+
+
+class Numbers
+{
+    var a : Int
+    var b : Int
+    
+    func add()
+    {
+        let sum = a + b
+        print(sum)
+    }
+    
+    init()
+    {
+        self.a = 0
+        self.b = 0
+    }
+    
+    init(a : Int, b : Int)
+    {
+        self.a = a
+        self.b = b
+    }
+}
+
+let obj = Numbers(a : 8, b : 3)
+obj.add()
+
+extension Numbers
+{
+    //var c : Int = 0     Extensions cannot contain stored properties
+    
+    var average : Int{    //Can contain only comp properties
+        return (a+b)/2
+    }
+    
+    convenience init(b : Int) {
+        self.init()
+        self.b = b
+    }
+    
+    
+    func multiply()
+    {
+        let product = a*b
+        print(product)
+    }
+}
+
+obj.multiply()
+
+var avg = obj.average
+
+let obj2 = Numbers(b : 4)
+obj2.add()
+obj2.multiply()
