@@ -156,12 +156,12 @@ class Human {
 }
 
 
-do {
-    let humanObj = try? Human(name: nil)
-} catch ErrorsToThrow.nameIsEmpty {
-    print("The name is empty.Cannot initialize human")
-}
-let humanObj1 = try? Human(name: "5")
+//do {
+//    let humanObj = try? Human(name: nil)
+//} catch ErrorsToThrow.nameIsEmpty {
+//    print("The name is empty.Cannot initialize human")
+//}
+//let humanObj1 = try? Human(name: "5")
 
 class MediaItem {
     var name: String
@@ -222,39 +222,41 @@ printWithoutCounting(string: "hello, world")
 
 
 
-//arc
-class Employee {
-    let empName: String
-    weak var dept: Department?
-    
-    init(empName: String) {
-        self.empName = empName
-        print("\(empName) is being initialized")
-    }
-    
-    deinit {
-        print("\(empName) is being deinitialized")
-    }
-}
-class Department {
-    let deptName: String
-     var emp: Employee?
-    init(deptName: String) {
-        self.deptName = deptName
-        print("\(deptName) is being initialized")
-    }
-    
-    deinit {
-        print("\(deptName) is being deinitialized")
-    }
-}
-
-var john :Employee? = Employee(empName: "john")
-var iOS : Department? = Department(deptName: "iOS")
-john?.dept = iOS
-iOS?.emp = john
-iOS = nil
-
+////arc
+//class Employee {
+//    let empName: String
+//    weak var dept: Department?
+//
+//    init(empName: String) {
+//        self.empName = empName
+//        print("\(empName) is being initialized")
+//    }
+//
+//    deinit {
+//        print("\(empName) is being deinitialized")
+//    }
+//}
+//class Department {
+//    let deptName: String
+//     var emp: Employee?
+//    init(deptName: String) {
+//        self.deptName = deptName
+//        print("\(deptName) is being initialized")
+//    }
+//
+//    deinit {
+//        print("\(deptName) is being deinitialized")
+//    }
+//}
+//
+//var john :Employee?
+//Employee(empName: "john")
+//var iOS : Department? = Department(deptName: "iOS")
+//john?.dept = iOS
+//iOS?.emp = john
+//iOS = nil
+//john = nil
+//
 
 
 
@@ -346,3 +348,90 @@ var avg = obj.average
 let obj2 = Numbers(b : 4)
 obj2.add()
 obj2.multiply()
+
+
+
+
+private class cricket {
+    public func printIt() {
+        print("Welcome to Swift 4 Super Class")
+    }
+}
+
+//private class tennis: cricket {
+//    override public func printIt() {
+//        print("Welcome to Swift 4 Sub Class")
+//    }
+//}
+//
+ fileprivate let  cricinstance = cricket()
+cricinstance.printIt()
+
+//private let  tennisinstance = tennis()
+//tennisinstance.printIt()
+//
+
+
+class classA {
+    var a = 5
+        init(a:Int) {
+        self.a = a
+        print(a)
+    }
+}
+//class classB: classA {
+//        super init() {
+//        let  b = 30
+//        print(b)
+//    }}
+
+let rest = classA (a:4)
+//let print = classB()
+
+
+
+var rrr : Int?
+
+print(rrr = 4)
+
+
+struct Names {
+    var a : Int = 2
+    init(a: Int ) {
+        self.a = a
+        print(a)
+    }
+}
+Names(a: 5)
+let divide = {(val1:Double,val2:Double)->Double in return val1/val2}
+let cc = divide(12,13)
+print(cc)
+
+
+
+
+func a( _ st :String, _ ins :Int)->(String,Int){
+  return (st,ins)
+    
+}
+a("jj", 54)
+
+//var aaaa:Int? = 4
+//print(aaaa!)
+//aaaa = nil
+//print(aaaa)
+var myString:String? = "Hello, Swift 4!"
+//myString = "Hello, Swift 4!"
+
+if let yourString = myString {
+    print("Your string has - \(yourString)")
+} else {
+    print("Your string does not have a value")
+}
+
+
+var a : Int? = 5
+print(type(of: a))
+//a = nil
+var = a!
+e = nil
